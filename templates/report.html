@@ -1,0 +1,146 @@
+<!-- 
+  Report Page - Student Performance Report
+  
+  This page displays a detailed report of the latest prediction results
+  and provides an option to download a comprehensive PDF report.
+  
+  Key Features:
+  - Displays latest prediction summary
+  - Shows detailed metrics and analysis
+  - Provides PDF report download functionality
+  - Responsive design for all devices
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta tags and SEO -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="View and download your student performance prediction report">
+  <title>Prediction Report | AI LearnTrack</title>
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  
+  <!-- Favicon (add if available) -->
+  <!-- <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}"> -->
+</head>
+<body>
+  <!-- Main Application Container -->
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="logo">AI LearnTrack</div>
+      <nav>
+        <!-- Navigation Links -->
+        <a href="/" class="nav-item">Dashboard</a>
+        <a href="/insights" class="nav-item">Insights</a>
+        <a href="/report" class="nav-item active">Report</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- Page Header -->
+      <header class="header">
+        <h1>Student Performance Report</h1>
+        <p>View the latest prediction summary and download a PDF report.</p>
+      </header>
+
+      <!-- Report Content Section -->
+      {% if latest %}
+      <section class="grid">
+        <div class="card" role="region" aria-label="Prediction Summary">
+          <h2>Latest Prediction Summary</h2>
+          
+          <!-- Results Grid -->
+          <div class="results">
+            <!-- Prediction Timestamp -->
+            <div class="result-item">
+              <h4>Prediction Time</h4>
+              <p>{{ latest.timestamp }}</p>
+            </div>
+
+            <!-- Predicted Final Score -->
+            <div class="result-item">
+              <h4>Predicted Final Score</h4>
+              <p class="big-number">{{ latest.predicted_score }}</p>
+            </div>
+
+            <!-- Risk Level -->
+            <div class="result-item">
+              <h4>Risk Level</h4>
+              <span class="badge badge-{{ latest.risk_level|lower }}">{{ latest.risk_level }}</span>
+            </div>
+
+            <!-- Learner Type -->
+            <div class="result-item">
+              <h4>Learner Type</h4>
+              <span class="badge badge-neutral">{{ latest.learner_type }}</span>
+            </div>
+
+            <!-- Average Marks -->
+            <div class="result-item">
+              <h4>Average Marks (%)</h4>
+              <p class="big-number">{{ latest.average_marks }}</p>
+            </div>
+
+            <!-- Previous Year Performance -->
+            <div class="result-item">
+              <h4>Previous Year (%)</h4>
+              <p>{{ latest.previous_year_percentage }}</p>
+            </div>
+          </div>
+
+          <!-- Behavior Details Section -->
+          <h3>Behaviour Details</h3>
+          <ul class="suggestions-list" role="list" aria-label="Behavioral metrics">
+            <li>Study Hours / Day: {{ latest.study_hours }}</li>
+            <li>Sleep Hours / Day: {{ latest.sleep_hours }}</li>
+            <li>Focus Time (hours): {{ latest.focus_time }}</li>
+            <li>Attendance (%): {{ latest.attendance }}</li>
+          </ul>
+
+          <!-- PDF Download Button -->
+          <div class="report-actions" role="region" aria-label="Report actions">
+            <a href="/download-report" class="btn-primary" 
+               role="button" 
+               aria-label="Download PDF report of your performance analysis">
+              <span class="icon">📄</span> Download PDF Report
+            </a>
+            <div style="margin-top: 1rem;">
+              <p class="hint" style="margin: 0.5rem 0;">The PDF includes detailed analysis and personalized recommendations.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- No Predictions State -->
+      {% else %}
+      <section class="card" style="margin-top:24px;" role="alert" aria-live="polite">
+        <h2>No Predictions Found</h2>
+        <p>You have not made any predictions yet. Go to the Dashboard, enter your details, and generate a prediction first.</p>
+        <div class="cta-actions" style="margin-top: 1rem;">
+          <a href="/" class="btn-primary" role="button">Go to Dashboard</a>
+        </div>
+      </section>
+      {% endif %}
+    </main>
+  </div>
+  
+  <!-- JavaScript for enhanced interactivity -->
+  <script>
+    // Add any client-side interactivity here
+    document.addEventListener('DOMContentLoaded', function() {
+      // Example: Add animation to the download button
+      const downloadBtn = document.querySelector('.btn-primary[href="/download-report"]');
+      if (downloadBtn) {
+        downloadBtn.addEventListener('click', function() {
+          // Optional: Add loading state or animation
+          this.innerHTML = 'Generating Report...';
+          this.classList.add('loading');
+        });
+      }
+    });
+  </script>
+</body>
+</html>

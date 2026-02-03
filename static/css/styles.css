@@ -1,0 +1,323 @@
+/* static/css/styles.css */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+  
+  body {
+    background: #0f172a;
+    color: #e5e7eb;
+  }
+  
+  .app-container {
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    width: 220px;
+    background: #020617;
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #38bdf8;
+  }
+  
+  .nav-item {
+    display: block;
+    padding: 10px 14px;
+    border-radius: 999px;
+    color: #9ca3af;
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+  }
+  
+  .nav-item.active,
+  .nav-item:hover {
+    background: rgba(56, 189, 248, 0.15);
+    color: #e5e7eb;
+  }
+  
+  /* Main content */
+  .main-content {
+    flex: 1;
+    padding: 24px 32px;
+  }
+  
+  .header h1 {
+    font-size: 1.7rem;
+    margin-bottom: 4px;
+  }
+  
+  .header p {
+    color: #9ca3af;
+    font-size: 0.9rem;
+  }
+  
+  .grid {
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 24px;
+  }
+  
+  .card {
+    background: rgba(15, 23, 42, 0.9);
+    border-radius: 16px;
+    padding: 20px 20px 24px;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(148, 163, 184, 0.12);
+  }
+  
+  .card h2 {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+  }
+  
+  .card h3 {
+    font-size: 1rem;
+    margin-top: 0;
+    margin-bottom: 8px;
+    color: #9ca3af;
+    font-weight: 500;
+  }
+  
+  /* Stats Card */
+  .stats-card {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    background: rgba(56, 189, 248, 0.1);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+  }
+  
+  .stats-card h3 {
+    margin-bottom: 0;
+  }
+  
+  .stats-card .value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #38bdf8;
+    margin: 0;
+    line-height: 1;
+  }
+  
+  /* Form */
+  .form-group {
+    margin-bottom: 12px;
+  }
+  
+  .form-group label {
+    display: block;
+    font-size: 0.85rem;
+    margin-bottom: 4px;
+    color: #cbd5f5;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    background: rgba(15, 23, 42, 0.9);
+    color: #e5e7eb;
+    font-size: 0.9rem;
+  }
+  
+  .form-group input:focus {
+    outline: none;
+    border-color: #38bdf8;
+  }
+  
+  /* Grid helpers */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+  
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+  }
+  
+  /* Buttons */
+  .btn-primary,
+  .btn-secondary {
+    border: none;
+    border-radius: 999px;
+    padding: 9px 18px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    margin-top: 8px;
+  }
+  
+  .btn-primary {
+    background: linear-gradient(135deg, #0ea5e9, #2563eb);
+    color: white;
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35);
+  }
+  
+  .btn-primary:hover {
+    filter: brightness(1.07);
+  }
+  
+  .btn-secondary {
+    background: rgba(15, 23, 42, 0.9);
+    color: #e5e7eb;
+    border: 1px dashed rgba(148, 163, 184, 0.7);
+    margin-bottom: 4px;
+  }
+  
+  .btn-secondary:hover {
+    background: rgba(15, 23, 42, 0.8);
+  }
+  
+  /* Subjects */
+  .subject-row {
+    display: grid;
+    grid-template-columns: 1.6fr 1.2fr auto;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  
+  .subject-row span {
+    font-size: 0.8rem;
+    color: #9ca3af;
+  }
+  
+  .remove-btn {
+    background: none;
+    border: none;
+    color: #f87171;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  /* Results */
+  .results {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  
+  .result-item {
+    background: rgba(15, 23, 42, 0.8);
+    border-radius: 12px;
+    padding: 10px 12px;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+  }
+  
+  .result-item h4 {
+    font-size: 0.8rem;
+    color: #9ca3af;
+    margin-bottom: 4px;
+  }
+  
+  .big-number {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #38bdf8;
+  }
+  
+  .badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+  
+  .badge-neutral {
+    background: rgba(30, 64, 175, 0.4);
+    color: #e5e7eb;
+  }
+  
+  .badge-low {
+    background: rgba(22, 163, 74, 0.25);
+    color: #4ade80;
+    border: 1px solid rgba(34, 197, 94, 0.7);
+  }
+  
+  .badge-medium {
+    background: rgba(234, 179, 8, 0.25);
+    color: #facc15;
+    border: 1px solid rgba(234, 179, 8, 0.8);
+  }
+  
+  .badge-high {
+    background: rgba(248, 113, 113, 0.25);
+    color: #fb7185;
+    border: 1px solid rgba(248, 113, 113, 0.8);
+  }
+  
+  .badge-critical {
+    background: rgba(127, 29, 29, 0.7);
+    color: #fecaca;
+    border: 1px solid rgba(239, 68, 68, 0.9);
+  }
+  
+  /* Suggestions */
+  .suggestions-list {
+    list-style: none;
+    margin-top: 8px;
+    max-height: 220px;
+    overflow-y: auto;
+  }
+  
+  .suggestions-list li {
+    font-size: 0.9rem;
+    background: rgba(15, 23, 42, 0.9);
+    padding: 8px 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    margin-bottom: 6px;
+  }
+  
+  .suggestions-list .placeholder {
+    border-style: dashed;
+    color: #9ca3af;
+  }
+  
+  /* Error message */
+  .error-message {
+    margin-top: 8px;
+    color: #fca5a5;
+    font-size: 0.85rem;
+  }
+  
+  /* Responsive */
+  @media (max-width: 900px) {
+    .app-container {
+      flex-direction: column;
+    }
+  
+    .sidebar {
+      flex-direction: row;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+    }
+  
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  

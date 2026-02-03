@@ -1,0 +1,28 @@
+timestamp,predicted_score,risk_level,learner_type,average_marks,study_hours,sleep_hours,focus_time,attendance,previous_year_percentage
+2025-11-22 10:24:16,92.9,Low,Consistent learner,76.8,4.0,7.0,2.0,50.0,75.0
+2025-11-22 10:24:33,93.08,Low,Consistent learner,76.8,4.0,7.0,2.0,70.0,75.0
+2025-11-22 10:24:36,93.02,Low,Consistent learner,76.8,4.0,7.0,2.0,85.0,75.0
+2025-11-22 10:25:00,86.29,Low,Consistent learner,70.4,4.0,7.0,2.0,85.0,75.0
+2025-11-22 10:25:40,78.45,Medium,Needs improvement learner,62.3,2.0,6.0,1.0,55.0,60.0
+2025-11-22 10:26:05,81.72,Low,Consistent learner,68.5,3.0,7.0,2.5,80.0,72.0
+2025-11-22 10:26:30,69.14,High,Needs improvement learner,55.1,1.5,5.0,0.8,45.0,58.0
+2025-11-22 10:26:55,88.63,Low,Fast learner,74.0,5.0,8.0,3.0,92.0,78.0
+2025-11-22 10:27:21,72.48,Medium,Slow-paced learner,58.2,2.0,6.5,1.2,60.0,67.0
+2025-11-22 10:27:48,85.32,Low,Consistent learner,72.6,4.0,7.0,2.2,88.0,70.0
+2025-11-22 10:28:12,91.04,Low,Fast learner,75.9,5.5,8.0,3.2,95.0,82.0
+2025-11-22 10:28:40,64.15,High,Needs improvement learner,51.3,1.0,5.0,0.5,40.0,55.0
+2025-11-22 10:29:10,79.82,Medium,Consistent learner,63.8,3.5,7.5,1.8,70.0,69.0
+2025-11-22 10:29:40,82.94,Low,Consistent learner,67.0,3.0,7.0,2.0,85.0,72.0
+2025-11-22 10:30:05,90.55,Low,Fast learner,76.4,5.0,7.5,3.0,93.0,80.0
+2025-11-22 10:30:31,74.33,Medium,Slow-paced learner,59.7,2.5,6.0,1.0,65.0,68.0
+2025-11-22 10:30:58,87.14,Low,Consistent learner,73.0,4.5,7.0,2.4,90.0,76.0
+2025-11-22 10:31:26,68.91,High,Needs improvement learner,54.4,1.5,5.5,0.9,48.0,61.0
+2025-11-22 10:31:55,92.38,Low,Fast learner,77.2,6.0,8.0,3.4,96.0,85.0
+2025-11-22 10:32:22,83.47,Low,Consistent learner,68.8,4.0,7.5,2.1,87.0,74.0
+2025-11-22 10:32:50,71.26,Medium,Slow-paced learner,57.9,2.0,6.0,1.1,62.0,66.0
+2025-11-22 10:33:19,89.58,Low,Fast learner,75.1,5.0,7.5,3.3,94.0,79.0
+2025-11-22 10:33:48,65.74,High,Needs improvement learner,52.0,1.0,5.0,0.6,43.0,57.0
+2025-11-22 10:34:15,84.62,Low,Consistent learner,69.9,4.0,7.0,2.3,89.0,73.0
+2025-11-22 10:42:36,93.2,Low,Consistent learner,81.33,4.0,7.0,2.0,80.0,73.69
+2025-11-22 14:33:49,87.42,Low,Consistent learner,71.2,4.0,7.0,2.0,85.0,77.25
+2025-11-22 16:29:31,91.15,Low,Consistent learner,72.8,4.0,7.0,2.0,85.0,75.0

@@ -1,0 +1,152 @@
+<!-- 
+  Main Dashboard Page - Student Performance Predictor
+  
+  This is the main interface where users can input their academic information
+  and receive performance predictions, risk assessment, and personalized suggestions.
+  
+  Key Features:
+  - Input form for subject marks and study behavior
+  - Real-time prediction results display
+  - Interactive UI with responsive design
+  - Visual indicators for risk levels and learner types
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta tags for character encoding and responsive design -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Performance Predictor | AI LearnTrack</title>
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    
+    <!-- Favicon (add if available) -->
+    <!-- <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}"> -->
+  </head>
+<body>
+  <!-- Main Application Container -->
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="logo">AI LearnTrack</div>
+      <nav>
+        <!-- Navigation Links -->
+        <a href="#" class="nav-item active">Dashboard</a>
+        <a href="/insights" class="nav-item">Insights</a>
+        <a href="/report" class="nav-item">Report</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- Page Header -->
+      <header class="header">
+        <div>
+          <h1>Student Performance & Risk Analysis</h1>
+          <p>Enter your details to predict final score, risk level, and learner type.</p>
+        </div>
+      </header>
+
+      <!-- Two-column layout for input and results -->
+      <section class="grid">
+        <!-- Input Form Card -->
+        <div class="card">
+          <h2>Input Student Details</h2>
+
+          <!-- Subject Marks Section -->
+          <h3>Subject Marks</h3>
+          <!-- Dynamic container for subject inputs -->
+          <div id="subjects-container">
+            <!-- Subject inputs will be dynamically added here by JavaScript -->
+          </div>
+          <button id="add-subject-btn" class="btn-secondary">+ Add Subject</button>
+          <small class="hint">Max 5 subjects. Each subject: Marks & Out of.</small>
+
+          <!-- Academic Performance Metrics -->
+          <div class="grid-2">
+            <div class="form-group">
+              <label for="previous_year_percentage">Previous Year Percentage (%)</label>
+              <input type="number" id="previous_year_percentage" placeholder="e.g. 72" min="0" max="100" />
+            </div>
+            <div class="form-group">
+              <label for="attendance">Attendance (%)</label>
+              <input type="number" id="attendance" placeholder="e.g. 85" min="0" max="100" />
+            </div>
+          </div>
+
+          <!-- Study Behavior Section -->
+          <h3>Study Behaviour</h3>
+          <div class="grid-3">
+            <div class="form-group">
+              <label for="study_hours">Study Hours / Day</label>
+              <input type="number" step="0.1" id="study_hours" placeholder="e.g. 3.5" min="0" max="24" />
+            </div>
+            <div class="form-group">
+              <label for="sleep_hours">Sleep Hours / Day</label>
+              <input type="number" step="0.1" id="sleep_hours" placeholder="e.g. 7" min="0" max="24" />
+            </div>
+            <div class="form-group">
+              <label for="focus_time">Focused Study Time (hours)</label>
+              <input type="number" step="0.1" id="focus_time" placeholder="e.g. 2" min="0" max="24" />
+            </div>
+          </div>
+
+          <!-- Form Actions -->
+          <button id="predict-btn" class="btn-primary" type="button">Predict Performance</button>
+          <!-- Error message container (initially hidden) -->
+          <div id="error-message" class="error-message" role="alert" aria-live="polite"></div>
+        </div>
+
+        <!-- Results Card (initially empty) -->
+        <div class="card">
+          <h2>Prediction Results</h2>
+          
+          <!-- Results Grid -->
+          <div class="results">
+            <!-- Predicted Final Score -->
+            <div class="result-item">
+              <h4>Predicted Final Score</h4>
+              <p id="predicted-score" class="big-number" aria-live="polite">--</p>
+            </div>
+            
+            <!-- Risk Level -->
+            <div class="result-item">
+              <h4>Risk Level</h4>
+              <span id="risk-level" class="badge badge-neutral" aria-live="polite">--</span>
+            </div>
+            
+            <!-- Learner Type -->
+            <div class="result-item">
+              <h4>Learner Type</h4>
+              <span id="learner-type" class="badge badge-neutral" aria-live="polite">--</span>
+            </div>
+            
+            <!-- Average Current Marks -->
+            <div class="result-item">
+              <h4>Average Current Marks</h4>
+              <p id="average-marks" class="big-number" aria-live="polite">--</p>
+            </div>
+          </div>
+
+          <!-- Suggestions Section -->
+          <h3>Suggestions</h3>
+          <ul id="suggestions-list" class="suggestions-list" aria-live="polite">
+            <li class="placeholder">Your personalized suggestions will appear here after prediction.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- JavaScript Files -->
+  <!-- 
+    Main application script that handles:
+    - Form submission
+    - Dynamic subject management
+    - API calls to prediction endpoint
+    - UI updates based on prediction results
+  -->
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

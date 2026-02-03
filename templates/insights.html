@@ -1,0 +1,115 @@
+<!-- 
+  Insights Dashboard - Student Performance Analytics
+  
+  This page provides visual analytics and insights based on historical prediction data.
+  It includes interactive charts showing performance trends, risk distribution, and study patterns.
+  
+  Key Features:
+  - Interactive charts using Chart.js
+  - Real-time data visualization
+  - Responsive design for all devices
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta tags and SEO -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="View analytics and insights for student performance predictions">
+  <title>Insights Dashboard | AI LearnTrack</title>
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  
+  <!-- Chart.js for data visualization -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+  
+  <!-- Favicon (add if available) -->
+  <!-- <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}"> -->
+</head>
+
+<body>
+  <!-- Main Application Container -->
+  <div class="app-container">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="logo">AI LearnTrack</div>
+      <nav>
+        <!-- Navigation Links -->
+        <a href="/" class="nav-item">Dashboard</a>
+        <a href="/insights" class="nav-item active">Insights</a>
+        <a href="/report" class="nav-item">Report</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- Page Header -->
+      <header class="header">
+        <h1>Insights & Analytics</h1>
+        <p>Summary of predictions based on your performance history.</p>
+      </header>
+
+      <!-- Charts Grid Layout -->
+      <section class="grid">
+        <!-- Card: Total Predictions -->
+        <div class="card stats-card" role="region" aria-label="Total Predictions">
+          <h3>Total Predictions Logged</h3>
+          <p id="totalStudents" class="value">0</p>
+        </div>
+
+        <!-- Chart 1: Average Score Over Time -->
+        <div class="card" role="region" aria-label="Average Predicted Score Chart">
+          <h2>Average Predicted Score</h2>
+          <div class="chart-container">
+            <canvas id="scoreChart" aria-label="Line chart showing average predicted score trend over time"></canvas>
+          </div>
+          <p class="chart-description">Trend of your predicted scores over time, helping track performance improvements.</p>
+        </div>
+
+        <!-- Chart 2: Risk Level Distribution -->
+        <div class="card" role="region" aria-label="Risk Level Distribution Chart">
+          <h2>Risk Level Breakdown</h2>
+          <div class="chart-container">
+            <canvas id="riskChart" aria-label="Pie chart showing distribution of risk levels"></canvas>
+          </div>
+          <p class="chart-description">Distribution of risk levels across all your predictions.</p>
+        </div>
+
+        <!-- Chart 3: Study Hours vs Marks -->
+        <div class="card" role="region" aria-label="Study Hours vs Marks Scatter Plot">
+          <h2>Average Study Hours vs Marks</h2>
+          <div class="chart-container">
+            <canvas id="studyChart" aria-label="Scatter plot comparing study hours to marks"></canvas>
+          </div>
+          <p class="chart-description">Relationship between study hours and achieved marks across all subjects.</p>
+        </div>
+      </section>
+      
+      <!-- Data Last Updated Indicator -->
+      <div class="data-info" aria-live="polite">
+        <small>Data last updated: <span id="last-updated">Loading...</span></small>
+      </div>
+    </main>
+  </div>
+
+  <!-- JavaScript Files -->
+  <!-- 
+    Insights Dashboard Script:
+    - Fetches historical prediction data from the server
+    - Initializes and updates interactive charts
+    - Handles responsive behavior and data updates
+    - Version parameter ensures cache busting for updates
+  -->
+  <script src="{{ url_for('static', filename='js/insights.js') }}?v=2001"></script>
+  
+  <!-- Loading Indicator (initially shown, hidden by JavaScript) -->
+  <div id="loading-indicator" class="loading-indicator" role="status" aria-live="polite">
+    <div class="spinner"></div>
+    <p>Loading analytics data...</p>
+  </div>
+
+</body>
+</html>
